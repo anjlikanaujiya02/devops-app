@@ -37,10 +37,10 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh '/usr/bin/docker build -t $DOCKER_IMAGE:latest .'
+                sh 'sudo docker build -t anjli14/app:latest .'
             }
         }
-
+        
         stage('Push Docker Image') {
             steps {
                 withCredentials([usernamePassword(
@@ -49,8 +49,8 @@ pipeline {
                     passwordVariable: 'PASS'
                 )]) {
                     sh '''
-                    echo $PASS | /usr/bin/docker login -u $USER --password-stdin
-                    /usr/bin/docker push $DOCKER_IMAGE:latest
+                    echo $PASS | sudo docker login -u $USER --password-stdin
+                    sudo docker push anjli14/app:latest
                     '''
                 }
             }
