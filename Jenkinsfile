@@ -6,14 +6,14 @@ pipeline {
     }
 
     environment {
-        DOCKER_IMAGE = "yourdockerhubusername/devops-app"
+        DOCKER_IMAGE = "anjli14/app"
     }
 
     stages {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/YOUR-USERNAME/devops-app.git'
+                git 'https://github.com/anjlikanaujiya02/devops-app.git'
             }
         }
 
